@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<style>
 		body {
 			background-color: #353535;
@@ -12,13 +13,13 @@
 			background-color: #454545;
 			border-color: #FFFFFF;
 			border-radius: 5px;
-			font-size: 15px;
+			font-size: 35px;
 
 			position: absolute;
-			width: 100px;
-			height: 25px;
+			width: 100%;
+			height: 100px;
 
-			left: 18px;
+			/*left: 18px;*/
 			top: 5px;
 		}
 		.buttons {
@@ -27,54 +28,64 @@
 
 			position: absolute;
 
-			width: 135px;
-			height: 135px;
-			left: 47%;
-			top: 10%;
+			width: 90%;
+			height: 90%;
+			left: 5%;
+			top: 5%;
 		}
 	</style>
-
-	<!-- <audio hidden controls id = "Audio">
-		<source src = "Ben.mp3" type = "audio/mpeg">
-		<source src = "BenLaugh.mp3" type = "audio/mpeg">
-	</audio> -->
-
 	<body>
 		<div class = "buttons">
-			<button class = "sb_button" audioPath = "Ben.mp3" audioType = "audio/mpeg">
+			<!-- <button class = "sb_button" audioPath = "Ben.mp3" audioType = "audio/mpeg">
 				Ben
 			</button>
 			<button class = "sb_button" audioPath = "BenLaugh.mp3" audioType = "audio/mpeg">
 				Laugh
-			</button>
+			</button> -->
 		</div>
 	</body>
 	<script>
-		// const audio = document.getElementById("Audio");
-		const buttons = document.getElementsByClassName("sb_button");
+		const buttons = document.getElementsByClassName("buttons")[0];
 
-		for (var i = 0; i < buttons.length; i++) {
-			const button = buttons[i];
+		const sounds = {
+			["sounds/Ben.mp3"]: "audio/mpeg",
+			["sounds/Yes.mp3"]: "audio/mpeg",
+			["sounds/No.mp3"]: "audio/mpeg",
+			["sounds/Laugh.mp3"]: "audio/mpeg",
+			["sounds/StickTongueOut.mp3"]: "audio/mpeg",
 
-			const top = ((i + 1) * (Number(button.style.height) / 2)).toString() + "px";
-			console.log(top);
+			["sounds/Nananana.mp3"]: "audio/mpeg",
+			["sounds/Shush.mp3"]: "audio/mpeg",
 
-			button.style.top = top;
+			["sounds/Whistle.mp3"]: "audio/mpeg",
+		};
+
+		var i = 0;
+
+		for (path in sounds) {
+			const type = sounds[path];
+
+			const button = document.createElement("BUTTON");
+			button.setAttribute("class", "sb_button");
+			button.innerHTML = path.substring(7, path.length - 4);
+			button.style.top = ((5 + i * 105)) + "px";
+
+			buttons.append(button);
 
 			const audio = document.createElement("AUDIO");
 			audio.setAttribute("controls", "");
 			audio.setAttribute("hidden", "");
 
 			const audioFile = document.createElement("SOURCE");
-			audioFile.setAttribute("src", button.getAttribute("audioPath"));
-			audioFile.setAttribute("type", button.getAttribute("audioType"));
+			audioFile.setAttribute("src", path);
+			audioFile.setAttribute("type", type);
 
 			audio.append(audioFile);
 
 			button.addEventListener("click", () => {
-				audio.pause();
 				audio.play();
 			});
+			i += 1;
 		};
 	</script>
 </head>
