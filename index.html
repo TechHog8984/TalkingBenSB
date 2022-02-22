@@ -72,6 +72,9 @@
 			audio.setAttribute("controls", "");
 			audio.setAttribute("hidden", "");
 			
+			console.log(audio.volume);
+			audio.volume = 3;
+			
 			audios.push(audio);
 
 			const audioFile = document.createElement("SOURCE");
