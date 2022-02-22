@@ -66,13 +66,13 @@
 			button.innerHTML = path.substring(7, path.length - 4);
 			button.style.top = ((5 + i * 85)) + "px";
 
-			buttons.push(button);
+			buttons.append(button);
 
 			const audio = document.createElement("AUDIO");
 			audio.setAttribute("controls", "");
 			audio.setAttribute("hidden", "");
 			
-			audios.append(audio);
+			audios.push(audio);
 
 			const audioFile = document.createElement("SOURCE");
 			audioFile.setAttribute("src", path);
