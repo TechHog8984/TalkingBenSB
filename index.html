@@ -92,10 +92,14 @@
 		playAll.innerHTML = "Play All";
 		playAll.style.top = ((5 + i * 85)) + "px";
 		
-		for (var i = 0; i < audios.length; i++) {
-			const audio = audios[i];
-			audio.currentTime = .05;
-			audio.play();
+		buttons.append(playAll);
+		
+		playAll.addEventListener("click", () => {
+			for (var i = 0; i < audios.length; i++) {
+				const audio = audios[i];
+				audio.currentTime = .05;
+				audio.play();
+			};
 		};
 	</script>
 </head>
