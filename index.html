@@ -61,85 +61,85 @@
 
 		var i = 0;
 
-// 		for (path in sounds) {
-// 			const type = sounds[path];
-
-// 			const button = document.createElement("BUTTON");
-// 			button.setAttribute("class", "sb_button");
-// 			button.innerHTML = path.substring(7, path.length - 4);
-// 			button.style.top = ((5 + i * 85)) + "px";
-
-// 			buttons.append(button);
-
-// 			const audio = document.createElement("AUDIO");
-// 			audio.setAttribute("controls", "");
-// 			audio.setAttribute("hidden", "");
-			
-// 			console.log(audio.volume);
-// 			audio.volume = 1;
-			
-// 			audios.push(audio);
-
-// 			const audioFile = document.createElement("SOURCE");
-// 			audioFile.setAttribute("src", path);
-// 			audioFile.setAttribute("type", type);
-
-// 			audio.append(audioFile);
-
-// 			button.addEventListener("click", () => {
-// 				audio.currentTime = .05;
-// 				audio.play();
-// 			});
-// 			i += 1;
-// 		};
-		
-// 		const playAll = document.createElement("BUTTON");
-// 		playAll.setAttribute("class", "sb_button");
-// 		playAll.innerHTML = "Play All";
-// 		playAll.style.top = ((5 + i * 85)) + "px";
-		
-// 		buttons.append(playAll);
-		
-// 		playAll.addEventListener("click", () => {
-// 			for (var i = 0; i < audios.length; i++) {
-// 				const audio = audios[i];
-// 				audio.currentTime = .05;
-// 				audio.play();
-// 			};
-// 		});
-		
 		for (path in sounds) {
 			const type = sounds[path];
-			
+
 			const button = document.createElement("BUTTON");
 			button.setAttribute("class", "sb_button");
 			button.innerHTML = path.substring(7, path.length - 4);
 			button.style.top = ((5 + i * 85)) + "px";
 
-			button.addEventListener(¨click¨, () => {
-				const audio = document.createElement("AUDIO");
-				audio.setAttribute("controls", "");
-				audio.setAttribute("hidden", "");
+			buttons.append(button);
 
-// 				console.log(audio.volume);
-				audio.volume = 1;
+			const audio = document.createElement("AUDIO");
+			audio.setAttribute("controls", "");
+			audio.setAttribute("hidden", "");
+			
+			console.log(audio.volume);
+			audio.volume = 1;
+			
+			audios.push(audio);
 
-// 				audios.push(audio);
+			const audioFile = document.createElement("SOURCE");
+			audioFile.setAttribute("src", path);
+			audioFile.setAttribute("type", type);
 
-				const audioFile = document.createElement("SOURCE");
-				audioFile.setAttribute("src", path);
-				audioFile.setAttribute("type", type);
+			audio.append(audioFile);
 
-				audio.append(audioFile);
-				
+			button.addEventListener("click", () => {
 				audio.currentTime = .05;
 				audio.play();
 			});
-			
-			buttons.append(button);
-			
 			i += 1;
 		};
+		
+		const playAll = document.createElement("BUTTON");
+		playAll.setAttribute("class", "sb_button");
+		playAll.innerHTML = "Play All";
+		playAll.style.top = ((5 + i * 85)) + "px";
+		
+		buttons.append(playAll);
+		
+		playAll.addEventListener("click", () => {
+			for (var i = 0; i < audios.length; i++) {
+				const audio = audios[i];
+				audio.currentTime = .05;
+				audio.play();
+			};
+		});
+		
+// 		for (path in sounds) {
+// 			const type = sounds[path];
+			
+// 			const button = document.createElement("BUTTON");
+// 			button.setAttribute("class", "sb_button");
+// 			button.innerHTML = path.substring(7, path.length - 4);
+// 			button.style.top = ((5 + i * 85)) + "px";
+
+// 			button.addEventListener(¨click¨, () => {
+// 				const audio = document.createElement("AUDIO");
+// 				audio.setAttribute("controls", "");
+// 				audio.setAttribute("hidden", "");
+
+// // 				console.log(audio.volume);
+// 				audio.volume = 1;
+
+// // 				audios.push(audio);
+
+// 				const audioFile = document.createElement("SOURCE");
+// 				audioFile.setAttribute("src", path);
+// 				audioFile.setAttribute("type", type);
+
+// 				audio.append(audioFile);
+				
+// 				audio.currentTime = .05;
+// 				audio.play();
+// 			});
+			
+// 			buttons.append(button);
+			
+// 			i += 1;
+// 		};
 	</script>
 </head>
 </html>
